@@ -17,6 +17,9 @@ sudo apt upgrade -y || WARN "Can't update"
 INFO "Installing wget and gpg, just in case it isnt"
 sudo apt install wget gpg -y
 
+INFO "Adding http/https transport to apt"
+sudo apt install -y apt-transport-https || ERRO "Can't install apt-transport-https"
+
 INFO "Adding sources"
 echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" | sudo tee /etc/apt/sources.list.d/wine.list || ERRO "Can't add apt list"
 wget -q --show-progress https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add - || ERRO "Can't add key"
