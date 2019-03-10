@@ -30,8 +30,8 @@ sudo apt update -y || WARN "Can't update"
 sudo apt upgrade -y || WARN "Can't update"
 
 INFO "Installing wine"
-sudo apt install -y --install-recommends winehq-staging || ERRO "Can't Install wine"
-sudo apt install -y --install-recommends winetricks || ERRO "Can't Install winetricks"
+sudo apt install -y --install-recommends winehq-staging:i386 || ERRO "Can't Install wine"
+sudo apt install -y --install-recommends winetricks:i386 || ERRO "Can't Install winetricks"
 
 INFO "Installing make"
 sudo apt install -y make || ERRO "Can't install make"
