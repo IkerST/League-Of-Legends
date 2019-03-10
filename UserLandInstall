@@ -14,6 +14,9 @@ sudo dpkg --add-architecture i386 || ERRO "Can't add architecture"
 sudo apt update -y || WARN "Can't update"
 sudo apt upgrade -y || WARN "Can't update"
 
+INFO "Installing wget and gpg, just in case it isnt"
+sudo apt install wget gpg -y
+
 INFO "Adding sources"
 echo "deb https://dl.winehq.org/wine-builds/debian/ stretch main" | sudo tee /etc/apt/sources.list.d/wine.list || ERRO "Can't add apt list"
 wget -q --show-progress https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add - || ERRO "Can't add key"
@@ -21,6 +24,7 @@ sudo apt update -y || WARN "Can't update"
 sudo apt upgrade -y || WARN "Can't update"
 
 sudo apt install -y --install-recommends winehq-staging || ERRO "Can't Install wine"
+sudo apt install -y --install-recommends winetricks || ERRO "Can't Install winetricks"
 
 make install
 
