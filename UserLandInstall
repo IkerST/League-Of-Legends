@@ -22,4 +22,6 @@ sudo apt upgrade -y || WARN "Can't update"
 
 sudo apt install -y --install-recommends winehq-staging || ERRO "Can't Install wine"
 
-./leagueoflegends
+make install
+
+leagueoflegends install
