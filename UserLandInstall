@@ -17,6 +17,9 @@ sudo apt upgrade -y || WARN "Can't update"
 INFO "Installing wget and gpg, just in case it isnt"
 sudo apt install wget gpg -y
 
+INFO "Installing qemu for x86 emulation"
+sudo apt install -y qemu-user-static
+
 INFO "Adding http/https transport to apt"
 sudo apt install -y apt-transport-https || ERRO "Can't install apt-transport-https"
 
@@ -26,6 +29,7 @@ wget -q --show-progress https://dl.winehq.org/wine-builds/winehq.key -O- | sudo 
 sudo apt update -y || WARN "Can't update"
 sudo apt upgrade -y || WARN "Can't update"
 
+INFO "Installing wine"
 sudo apt install -y --install-recommends winehq-staging || ERRO "Can't Install wine"
 sudo apt install -y --install-recommends winetricks || ERRO "Can't Install winetricks"
 
